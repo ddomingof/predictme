@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+    <title>Legal</title>
+
+    {% include "dependencies/common.html" %}
+    {% include "dependencies/jquery.html" %}
+
+    {% include "dependencies/bootstrap_dependencies.html" %}
+</head>
+<body>
+
+{% include "nav.html" %}
+
+<div class="container-fluid">
+    <h2 class="pb-2 mt-4 mb-2 border-bottom text-center">
+        Legal
+    </h2>
+
+    <div class="row">
+        <div class="col">
+
+            <!-- Imprint -->
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Imprint and Publishing Notes</h3>
+                    <div class="card-text">
+                        See the <a href="https://www.scai.fraunhofer.de/en/publishing-notes.html">imprint and publishing
+                        notes</a> for this web application and other Fraunhofer SCAI web applications.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col">
+
+            <!-- Data Protection -->
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Data Protection</h3>
+                    <div class="card-text">
+                        See the General Data Protection Regulation (GDPR) compliance and
+                        <a href="https://www.scai.fraunhofer.de/en/data_protection.html">data protection</a>
+                        information
+                        for
+                        this web application and other Fraunhofer SCAI web applications.
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+
+            <div class="card" style="margin-top: 15px">
+                <div class="card-body">
+                    <h3 class="card-title">Fraunhofer SCAI Terms and Conditions</h3>
+                    <div class="card-text">
+                        <p>
+                            By using any services of this web application, you accept our <a
+                                href="https://www.scaiview.com/en/terms-and-conditions.html">Terms and Conditions of
+                            Use</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <!-- Academic Disclaimer -->
+            <div class="card" style="margin-top: 15px">
+                <div class="card-body">
+                    <h3 class="card-title">Fraunhofer SCAI Academic Disclaimer</h3>
+                    <div class="card-text">
+                        <p>
+                            This web application is a purely academic and it is built within the context of the <a
+                                target="_blank" rel="noopener noreferrer"
+                                href="https://www.aetionomy.eu/">AETIONOMY Project</a>.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "footer.html" %}
+
+</body>

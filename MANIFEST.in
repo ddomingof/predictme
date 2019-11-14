@@ -1,0 +1,10 @@
+graft app
+
+include docs/Makefile
+include config/config.ini
+
+global-exclude *.py[cod] __pycache__ *.so *.dylib .DS_Store *.gpickle
+
+exclude migrations/*
+
+include *.rst *.txt LICENSE

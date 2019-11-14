@@ -1,0 +1,16 @@
+footer {
+    margin-left: 15px;
+    margin-right: 15px;
+    float: right;
+}
+
+.btn {
+    background-color: #00967f !important;
+    border-color: #00967f !important;
+    color: white !important;
+}
+
+.btn:active, .btn-primary:hover, .btn-primary:focus {
+    background-color: #006e57 !important;
+    color: white !important;
+}
