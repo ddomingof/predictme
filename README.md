@@ -2,4 +2,4 @@
   PredictMe
 </h1>
 
-Predictme is a web application to ...
+Write here the R version, and version of rpy2 used.
