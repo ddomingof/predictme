@@ -2,4 +2,6 @@
   PredictMe
 </h1>
 
-Write here the R version, and version of rpy2 used.
+- Python version 3.6
+- R version 3.6.1, and
+- rpy2 version 2.9.4
