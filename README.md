@@ -2,6 +2,14 @@
   PredictMe
 </h1>
 
-- Python version 3.6
-- R version 3.6.1, and
-- rpy2 version 2.9.4
+Setup R
+-------
+
+Point to R in .bashrc
+
+-> export R_HOME="/Library/Frameworks/R.framework/Resources"
+
+Configuration used to run the project (myMac):
+- Python version: 3.7.4
+- R version: 3.6.2 (https://cran.r-project.org/)
+- rpy2 version: 3.1.0
