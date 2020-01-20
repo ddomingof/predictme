@@ -2,14 +2,12 @@
 
 import logging
 
-from django.http import HttpResponseBadRequest
+from django.http import HttpResponseBadRequest, HttpResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_GET
 
-from .forms import UploadFileForm
-
 from predictme.src.predictme.data_preprocessing import process_data
-
+from .forms import UploadFileForm
 
 logger = logging.getLogger(__name__)
 
@@ -22,16 +20,20 @@ def home(request):
 
 def predict(request):
     """Predict view."""
-    if not 'file' in request.FILES:
+    form = UploadFileForm(request.POST, request.FILES)
+
+    # Check if form is valid
+    if not form.is_valid():
         return HttpResponseBadRequest(
-            'Your genotype file was not found. Please ensure you have submitted a valid file.'
+            'There was a problem with the submitted form. Please ensure you have submitted a valid file.'
         )
 
-    file = request.FILES['file']
-    df = process_data(file)
+    df = process_data(request.FILES['file'])
 
-    print(df)
+    if isinstance(df, str):  # df would be the message to the user
+        return HttpResponseBadRequest(df)
 
+    return HttpResponse("Success")
 
 @require_GET
 def legal(request):
