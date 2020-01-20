@@ -51,31 +51,3 @@ def process_data(file):
     _check_genotype_df(file)
 
     return df
-
-
-def _check_gmt_file(gmt_file):
-    """Check gmt files submitted by user."""
-
-    try:
-        geneset_dict = gseapy.gsea_gmt_parser(gmt_file)
-    except:
-        return HttpResponseBadRequest(
-            'There is a problem with your .gmt file. please check that it meets the criteria.'
-        )
-
-    return geneset_dict
-
-
-def process_gmt(file):
-    """Check if expression data file is valid."""
-    geneset_dict = _check_gmt_file(file)
-
-    if not any(geneset_dict):
-        return HttpResponseBadRequest('Your .gmt file is empty. Please enter a valid .gmt file.')
-
-    hgnc_symbol_regex = re.compile(r'^[A-Z0-9-]+$|^C[0-9XY]+orf[0-9]+$')
-
-    for symbols in geneset_dict.values():
-
-        if not all([hgnc_symbol_regex.match(symbol) for symbol in symbols]):
-            return HttpResponseBadRequest('Please input an expression dataset with valid HGNC symbols.')
