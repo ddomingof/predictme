@@ -8,6 +8,7 @@ from predictme.views import (
     about,
     home,
     legal,
+    predict,
 )
 
 urlpatterns = [
@@ -15,4 +16,6 @@ urlpatterns = [
     path('', home, name='home'),
     path('about', about, name='about'),
     path('legal', legal, name='legal'),
+    path('predict', predict, name='predict'),
+
 ]

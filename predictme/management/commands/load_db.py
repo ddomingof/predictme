@@ -8,7 +8,7 @@ import os
 from django.core.management.base import BaseCommand
 
 from predictme.src.predictme.constants import (
-    RESOURCES_PATH,
+    RESOURCES_DIR,
 )
 from predictme.src.predictme.load_db import (
     delete_database,
@@ -29,7 +29,7 @@ class Command(BaseCommand):
         """--keep_db=True avoid dropping the db"""
         logger = logging.getLogger('parser')
         logger.setLevel(logging.DEBUG)
-        fh = logging.FileHandler(os.path.join(RESOURCES_PATH, 'parser.log'), mode='w')
+        fh = logging.FileHandler(os.path.join(RESOURCES_DIR, 'parser.log'), mode='w')
         fh.setLevel(logging.DEBUG)
         logger.addHandler(fh)
 
