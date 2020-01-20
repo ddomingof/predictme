@@ -42,6 +42,8 @@ def _check_genotype_df(df: pd.DataFrame):
     if not all([SNP_REGEX.match(str(snp)) for snp in df.index]):
         return 'Please ensure that all the SNP row contains valid SNPs [rsXXXXX].'
 
+    # TODO: Add check to see if there is an overlap between the SNPs in the dataset and the submitted ones
+
     return df
 
 def process_data(file):
