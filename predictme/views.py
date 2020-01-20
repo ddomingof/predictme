@@ -7,9 +7,12 @@ from django.shortcuts import render
 from django.views.decorators.http import require_GET
 
 from predictme.src.predictme.data_preprocessing import process_data
+from predictme.src.predictme.constants import EMAIL_CONTENT, EMAIL_SUBJECT
 from .forms import UploadFileForm
 
 logger = logging.getLogger(__name__)
+
+from django.core.mail import send_mail
 
 
 @require_GET
@@ -32,6 +35,14 @@ def predict(request):
 
     if isinstance(df, str):  # df would be the message to the user
         return HttpResponseBadRequest(df)
+
+    send_mail(
+        EMAIL_SUBJECT,
+        EMAIL_CONTENT,
+        f'daniel.domingo.fernandez@scai.fraunhofer.de',
+        ['ddomingof@yahoo.es'],
+        fail_silently=False,
+    )
 
     return HttpResponse("Success")
 

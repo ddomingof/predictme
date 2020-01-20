@@ -22,3 +22,9 @@ INPUT_FOR_MODEL = os.path.join(RESOURCES_DIR, "rosmap148.snp.mat.RData")
 """Dataframe Constants"""
 
 SNP_COLUMN = "SNP"
+
+"""Email"""
+
+EMAIL_SUBJECT = 'Your submission to PredictMe'
+EMAIL_CONTENT = 'Dear user,' \
+                'Your job has been finalized. Please check the results of your submission on the following link. %s'

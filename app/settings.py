@@ -7,7 +7,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'h90r6z$p)hsst&be@r9gh#s($^9)blidq@egbb#ijz=5%ayz%z'
 
@@ -108,3 +107,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'predictme/static'
+
+# Email Configuration
+
+# TODO: FIXME
+EMAIL_HOST = ''
+EMAIL_PORT = ''
