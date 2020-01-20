@@ -6,3 +6,4 @@ xlrd==1.2.0
 click==7.0
 rpy2==3.1.0
 celery==4.4.0
+django-celery-results
