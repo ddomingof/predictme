@@ -6,6 +6,8 @@ from django.http import HttpResponseBadRequest
 from django.shortcuts import render
 from django.views.decorators.http import require_GET
 
+from .forms import UploadFileForm
+
 from predictme.src.predictme.data_preprocessing import process_data
 
 
@@ -15,7 +17,7 @@ logger = logging.getLogger(__name__)
 @require_GET
 def home(request):
     """Render home page."""
-    return render(request, 'home.html')
+    return render(request, "home.html", {"form": UploadFileForm()})
 
 
 def predict(request):

@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 def _read_check(file):
     """Check expression data file."""
     try:
-        df = pd.read_csv(file, sep="\t")
+        df = pd.read_csv(file)
     except:
         return HttpResponseBadRequest('There is a problem with your file. Please ensure the file meets the criteria.')
 
@@ -48,6 +48,8 @@ def _check_genotype_df(df: pd.DataFrame):
 def process_data(file):
     """Check if expression data file is valid."""
     df = _read_check(file)
+    print(type(df))
+    print(df)
     _check_genotype_df(file)
 
     return df
