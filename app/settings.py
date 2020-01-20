@@ -113,3 +113,7 @@ STATIC_ROOT = 'predictme/static'
 # TODO: FIXME
 EMAIL_HOST = ''
 EMAIL_PORT = ''
+
+"""Celery"""
+
+CELERY_BROKER_URL = 'amqp://localhost'

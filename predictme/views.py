@@ -6,8 +6,10 @@ from django.http import HttpResponseBadRequest, HttpResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_GET
 
-from predictme.src.predictme.data_preprocessing import process_data
+from app.tasks import run_pipeline
+
 from predictme.src.predictme.constants import EMAIL_CONTENT, EMAIL_SUBJECT
+from predictme.src.predictme.data_preprocessing import process_data
 from .forms import UploadFileForm
 
 logger = logging.getLogger(__name__)
@@ -36,6 +38,9 @@ def predict(request):
     if isinstance(df, str):  # df would be the message to the user
         return HttpResponseBadRequest(df)
 
+    # Run celery task
+    run_pipeline()
+
     send_mail(
         EMAIL_SUBJECT,
         EMAIL_CONTENT,
@@ -45,6 +50,7 @@ def predict(request):
     )
 
     return HttpResponse("Success")
+
 
 @require_GET
 def legal(request):
