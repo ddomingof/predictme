@@ -7,7 +7,9 @@ Setup R
 
 Point to R in .bashrc
 
--> export R_HOME="/Library/Frameworks/R.framework/Resources"
+```python
+export R_HOME="/Library/Frameworks/R.framework/Resources"
+```
 
 Configuration used to run the project (myMac):
 - Python version: 3.7.4
