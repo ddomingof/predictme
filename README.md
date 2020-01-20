@@ -19,7 +19,13 @@ Configuration used to run the project (myMac):
 Running PredictMe
 -----------------
 
-1. Start celery
+1. Start RabbitMQ
+
+```python
+rabbitmq-server
+```
+
+2. Start celery
 
 ```python
 celery -A app worker -l info
