@@ -22,7 +22,7 @@ Running PredictMe
 1. Start RabbitMQ
 
 ```python
-rabbitmq-server
+rabbitmq-server (alternatively: brew services start rabbitmq)
 ```
 
 2. Start celery

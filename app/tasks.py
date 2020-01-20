@@ -10,6 +10,7 @@ from celery import shared_task
 
 @shared_task
 def run_pipeline():
+    print('Running pipeline')
     # TODO: Remove
     time.sleep(5)
-    return ''
+    print('Done running the pipeline')
