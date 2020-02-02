@@ -8,7 +8,6 @@ from django.views.decorators.http import require_GET
 
 from app.tasks import run_pipeline
 
-from predictme.src.predictme.constants import EMAIL_CONTENT, EMAIL_SUBJECT
 from predictme.src.predictme.data_preprocessing import process_data
 from .forms import UploadFileForm
 
@@ -39,15 +38,7 @@ def predict(request):
         return HttpResponseBadRequest(df)
 
     # Run celery task
-    run_pipeline()
-
-    send_mail(
-        EMAIL_SUBJECT,
-        EMAIL_CONTENT,
-        f'daniel.domingo.fernandez@scai.fraunhofer.de',
-        ['ddomingof@yahoo.es'],
-        fail_silently=False,
-    )
+    run_pipeline(df)
 
     return HttpResponse("Success")
 

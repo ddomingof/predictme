@@ -26,9 +26,3 @@ OUTPUT_FILE = os.path.join(RESOURCES_DIR, "patient_clusters.csv")
 """Dataframe Constants"""
 
 SNP_COLUMN = "SNP"
-
-"""Email"""
-
-EMAIL_SUBJECT = 'Your submission to PredictMe'
-EMAIL_CONTENT = 'Dear user,' \
-                'Your job has been finalized. Please check the results of your submission on the following link. %s'

@@ -104,19 +104,6 @@ USE_L10N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'predictme/static'
-
-# Email Configuration
-
-# TODO: FIXME
-EMAIL_HOST = ''
-EMAIL_PORT = ''
-
-"""Celery"""
-
-CELERY_BROKER_URL = 'amqp://localhost'
-CELERY_RESULT_BACKEND = 'django-db'
-CELERY_CACHE_BACKEND = 'django-cache'
