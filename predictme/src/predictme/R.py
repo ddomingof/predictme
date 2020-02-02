@@ -11,11 +11,11 @@ from .constants import (
 
 
 def run_r(
-        USER_FILE,
-        ADPD_AUTOENCODER_MODEL=ADPD_AUTOENCODER_MODEL,
-        AUTOENCODER_TRAINED_MATRIX=AUTOENCODER_TRAINED_MATRIX,
-        SUBGRAPH_15_RDATA=SUBGRAPH_15_RDATA,
-        TRAINED_PATIENT_CLUSTERS=TRAINED_PATIENT_CLUSTERS,
+        user_file,
+        autoencoder=ADPD_AUTOENCODER_MODEL,
+        autoencoder_trainer_matrix=AUTOENCODER_TRAINED_MATRIX,
+        subgraph_15_rdata=SUBGRAPH_15_RDATA,
+        trained_patient_clusters=TRAINED_PATIENT_CLUSTERS,
 ):
     """
     library(h2o)
@@ -28,7 +28,7 @@ def run_r(
     ####################################################################################
 
     # load SNPs for each Meachnisms
-    load(SUBGRAPH_15_RDATA)
+    load(subgraph_15_rdata)
 
     #load User data
     userSNPs <- read.csv(USER_FILE, row.names = 1, stringsAsFactors=FALSE)
@@ -49,8 +49,8 @@ def run_r(
     ####################################################################################
 
     # load our autoenocder models (#15) trained with AD-PD data
-    modelnames <-list.files(path = ADPD_AUTOENCODER_MODEL)
-    models = lapply(paste0(ADPD_AUTOENCODER_MODEL,"/", modelnames), h2o.loadModel)
+    modelnames <-list.files(path = autoencoder)
+    models = lapply(paste0(autoencoder,"/", modelnames), h2o.loadModel)
 
     # load user data into h2o environment
     user_data <- snp_mat
@@ -84,11 +84,11 @@ def run_r(
     h2o.init(nthreads=-1, min_mem_size="6G")
 
     ### Import autoencoder data set #subgraph15
-    load(AUTOENCODER_TRAINED_MATRIX)
+    load(autoencoder_trainer_matrix)
     main_data <- data.frame(autoen)
 
     #### read the cluster assignments of each patients
-    load(TRAINED_PATIENT_CLUSTERS)
+    load(trained_patient_clusters)
     rownames(clusters) <- clusters[,1]
     clusters[,1] <- NULL
 

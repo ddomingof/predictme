@@ -38,7 +38,7 @@ def predict(request):
         return HttpResponseBadRequest(df)
 
     # Evaluate test data with our classifier
-    results = run_r(df)
+    results = run_r(user_file=df)
 
     return HttpResponse("Success")
 
