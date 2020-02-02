@@ -2,18 +2,21 @@
 
 import logging
 
-from django.http import HttpResponseBadRequest, HttpResponse
+from django.http import HttpResponseBadRequest
 from django.shortcuts import render
 from django.views.decorators.http import require_GET
 
-from .src.predictme.R import run_r
-
+from predictme.src.predictme.constants import (
+    ADPD_AUTOENCODER_MODEL,
+    AUTOENCODER_TRAINED_MATRIX,
+    TRAINED_PATIENT_CLUSTERS,
+    SUBGRAPH_15_RDATA,
+)
 from predictme.src.predictme.data_preprocessing import process_data
 from .forms import UploadFileForm
+from .src.predictme.R import run_r
 
 logger = logging.getLogger(__name__)
-
-from django.core.mail import send_mail
 
 
 @require_GET
@@ -37,10 +40,20 @@ def predict(request):
     if isinstance(df, str):  # df would be the message to the user
         return HttpResponseBadRequest(df)
 
-    # Evaluate test data with our classifier
-    results = run_r(user_file=df)
+    # Transpose matrix (patients (rows) x snps (columns))
+    df = df.T
 
-    return HttpResponse("Success")
+    # Evaluate test data with our classifier
+    predictions = run_r(
+        user_df=df,
+        **{'autoencoder': ADPD_AUTOENCODER_MODEL,
+           'autoencoder_trainer_matrix': AUTOENCODER_TRAINED_MATRIX,
+           'subgraph_15_rdata': SUBGRAPH_15_RDATA,
+           'trained_patient_clusters': TRAINED_PATIENT_CLUSTERS
+           }
+    )
+
+    return render(request, 'results.html', context={'predictions': 'predictions'})
 
 
 @require_GET
