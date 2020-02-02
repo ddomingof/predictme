@@ -6,7 +6,7 @@ from django.http import HttpResponseBadRequest, HttpResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_GET
 
-from app.tasks import run_pipeline
+from .src.predictme.R import run_r
 
 from predictme.src.predictme.data_preprocessing import process_data
 from .forms import UploadFileForm
@@ -37,8 +37,8 @@ def predict(request):
     if isinstance(df, str):  # df would be the message to the user
         return HttpResponseBadRequest(df)
 
-    # Run celery task
-    run_pipeline(df)
+    # Evaluate test data with our classifier
+    results = run_r(df)
 
     return HttpResponse("Success")
 
