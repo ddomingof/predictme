@@ -13,11 +13,15 @@ PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'
 RESOURCES_DIR = os.path.join(PROJECT_DIR, 'data')
 
 """Static Files"""
-GENOTYPE_DATA = os.path.join(RESOURCES_DIR, 'Asif_Genotype_Disease_Only_ROSMAP.csv')
-SUGBRAPH_SNPS = os.path.join(RESOURCES_DIR, 'subgraphs15_snps_mod1.csv')
+### Our AD PD based training data
 SUBGRAPH_15_RDATA = os.path.join(RESOURCES_DIR, 'subgraph15_snpset148.RData')
+ADPD_AUTOENCODER_MODEL = os.path.join(RESOURCES_DIR, 'models/')
+AUTOENCODER_TRAINED_MATRIX = os.path.join(RESOURCES_DIR, "autoencoder_trained_matrix.RData")
+TRAINED_PATIENT_CLUSTERS = os.path.join(RESOURCES_DIR, "trained_patient_clusters.RData")
 
-INPUT_FOR_MODEL = os.path.join(RESOURCES_DIR, "rosmap148.snp.mat.RData")
+## USER Data
+USER_FILE = os.path.join(RESOURCES_DIR, 'Asif_Genotype_Disease_Only_ROSMAP.csv')
+OUTPUT_FILE = os.path.join(RESOURCES_DIR, "patient_clusters.csv")
 
 """Dataframe Constants"""
 
