@@ -9,12 +9,14 @@ from django.views.decorators.http import require_GET
 from predictme.src.predictme.constants import (
     ADPD_AUTOENCODER_MODEL,
     AUTOENCODER_TRAINED_MATRIX,
+    CLEANME_DIRECTORY,
     TRAINED_PATIENT_CLUSTERS,
     SUBGRAPH_15_RDATA,
 )
 from predictme.src.predictme.data_preprocessing import process_data
 from .forms import UploadFileForm
 from .src.predictme.R import run_r
+from .src.predictme.utils import delete_files_from_directory
 
 logger = logging.getLogger(__name__)
 
@@ -52,6 +54,9 @@ def predict(request):
            'trained_patient_clusters': TRAINED_PATIENT_CLUSTERS
            }
     )
+
+    # Ensures that the output directory is empty after generating the model
+    delete_files_from_directory(CLEANME_DIRECTORY)
 
     return render(request, 'results.html', context={'predictions': 'predictions'})
 

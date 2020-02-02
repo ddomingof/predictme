@@ -2,31 +2,41 @@
   PredictMe
 </h1>
 
-Setup R
--------
+Configuration
+-------------
+Configuration used to run the project:
+- Python version: 3.7.4
+- R version: 3.6.2 (https://cran.r-project.org/)
+- rpy2 version: 3.1.0
 
-Point to R in .bashrc
+Setup R
+~~~~~~~
+
+1. Point to R in .bashrc (example)
 
 ```python
 export R_HOME="/Library/Frameworks/R.framework/Resources"
 ```
 
-Configuration used to run the project (myMac):
-- Python version: 3.7.4
-- R version: 3.6.2 (https://cran.r-project.org/)
-- rpy2 version: 3.1.0
-
-Running PredictMe
------------------
-
-1. Start RabbitMQ
+2. Install R libraries required using the script located inside the R directory
 
 ```python
-rabbitmq-server (alternatively: brew services start rabbitmq)
+R < R/install_R_libraries.R --no-save  
 ```
 
-2. Start celery
+Run Locally
+-----------
 
-```python
-celery -A app worker -l info
-```
+Install Python Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``python3 -m pip install -r requirements.txt``
+
+**Note that you might have to run "python" instead of "python3" in your computer.
+The only reason why I use python3 is to ensure I use the python3 version and not
+the python3 one.**
+
+Run locally
+~~~~~~~~~~~
+
+``python3 manage.py runserver`` (Run locally the web application on http://127.0.0.1:8000/)
