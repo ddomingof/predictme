@@ -19,7 +19,7 @@ export R_HOME="/Library/Frameworks/R.framework/Resources"
 
 2. Install R libraries required using the script located inside the R directory
 
-```python
+```R
 R < R/install_R_libraries.R --no-save  
 ```
 
