@@ -1,0 +1,108 @@
+{% load staticfiles %}
+{% load filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PredictMe</title>
+
+    {% include "dependencies/common.html" %}
+    {% include "dependencies/jquery.html" %}
+    {% include "dependencies/bootstrap_dependencies.html" %}
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.min.js">
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            var table = $("#predictions-table").DataTable();
+        });
+    </script>
+
+    <style>
+        tr td {
+            padding: 5px !important;
+            margin: 5px !important;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+{% include "nav.html" %}
+
+
+<div class="container container-fluid" style="margin-top: 50px">
+
+    <div class="card">
+        <div class="card-header">Cluster Subgraphs
+        </div>
+        <div class="card-body">
+            <p class="card-text">Blabla.
+            </p>
+
+            <table class="table table-striped table-hover table-bordered table-condensed" id="predictions-table">
+                <thead>
+                <tr style="text-align: center">
+                    <th class="first-row">Patient ID</th>
+                    <th class="first-row">Cluster</th>
+                    <th class="first-row">Subgraph #1</th>
+                    <th class="first-row">(#2)</th>
+                    <th class="first-row">(#3)</th>
+                    <th class="first-row">(#4)</th>
+                    <th class="first-row">(#5)</th>
+                    <th class="first-row">(#6)</th>
+                    <th class="first-row">(#7)</th>
+                    <th class="first-row">(#8)</th>
+                    <th class="first-row">(#9)</th>
+                    <th class="first-row">(#10)</th>
+                    <th class="first-row">(#11)</th>
+                    <th class="first-row">(#12)</th>
+                    <th class="first-row">(#13)</th>
+                    <th class="first-row">(#14)</th>
+                    <th class="first-row">(#15)</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for patient_id, row in predictions.iterrows %}
+                    <tr>
+                        <td>{{ patient_id }}</td>
+                        <td>{{ row|get_item:'clusters' }}</td>
+                        <td>{{ row|get_item:'Subgraph_1'|floatformat }}</td>
+                        <td>{{ row|get_item:'Subgraph_2'|floatformat }}</td>
+                        <td>{{ row|get_item:'Subgraph_3'|floatformat }}</td>
+                        <td>{{ row|get_item:'Subgraph_4'|floatformat }}</td>
+                        <td>{{ row|get_item:'Subgraph_5'|floatformat }}</td>
+                        <td>{{ row|get_item:'Subgraph_6'|floatformat }}</td>
+                        <td>{{ row|get_item:'Subgraph_7'|floatformat }}</td>
+                        <td>{{ row|get_item:'Subgraph_8'|floatformat }}</td>
+                        <td>{{ row|get_item:'Subgraph_9'|floatformat }}</td>
+                        <td>{{ row|get_item:'Subgraph_10'|floatformat }}</td>
+                        <td>{{ row|get_item:'Subgraph_11'|floatformat }}</td>
+                        <td>{{ row|get_item:'Subgraph_12'|floatformat }}</td>
+                        <td>{{ row|get_item:'Subgraph_13'|floatformat }}</td>
+                        <td>{{ row|get_item:'Subgraph_14'|floatformat }}</td>
+                        <td>{{ row|get_item:'Subgraph_15'|floatformat }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% include "footer.html" %}
+
+</div>
+
+
+</body>
+</html>

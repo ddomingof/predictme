@@ -58,7 +58,7 @@ def predict(request):
     # Ensures that the output directory is empty after generating the model
     delete_files_from_directory(CLEANME_DIRECTORY)
 
-    return render(request, 'results.html', context={'predictions': 'predictions'})
+    return render(request, 'results.html', context={'predictions': predictions})
 
 
 @require_GET
