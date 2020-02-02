@@ -2,15 +2,14 @@
   PredictMe
 </h1>
 
-Configuration
--------------
+## Configuration
+
 Configuration used to run the project:
 - Python version: 3.7.4
 - R version: 3.6.2 (https://cran.r-project.org/)
 - rpy2 version: 3.1.0
 
-Setup R
-~~~~~~~
+### Setup R
 
 1. Point to R in .bashrc (example)
 
@@ -24,11 +23,9 @@ export R_HOME="/Library/Frameworks/R.framework/Resources"
 R < R/install_R_libraries.R --no-save  
 ```
 
-Run Locally
------------
+## Run PredictMe
 
-Install Python Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Install Python requirements
 
 ``python3 -m pip install -r requirements.txt``
 
@@ -36,7 +33,6 @@ Install Python Requirements
 The only reason why I use python3 is to ensure I use the python3 version and not
 the python3 one.**
 
-Run locally
-~~~~~~~~~~~
+- Run locally
 
 ``python3 manage.py runserver`` (Run locally the web application on http://127.0.0.1:8000/)
