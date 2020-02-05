@@ -5,3 +5,4 @@ django==2.1
 xlrd==1.2.0
 click==7.0
 rpy2==3.1.0
+django_picklefield
