@@ -21,7 +21,6 @@ TRAINED_PATIENT_CLUSTERS = os.path.join(RESOURCES_DIR, "trained_patient_clusters
 
 CLEANME_DIRECTORY = os.path.join(RESOURCES_DIR, "classifier_model")
 
-
 ## USER Data
 USER_FILE = os.path.join(RESOURCES_DIR, 'Asif_Genotype_Disease_Only_ROSMAP.csv')
 OUTPUT_FILE = os.path.join(RESOURCES_DIR, "patient_clusters.csv")
