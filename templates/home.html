@@ -10,7 +10,6 @@
     {% include "dependencies/jquery.html" %}
     {% include "dependencies/bootstrap_dependencies.html" %}
 
-
     <style>
         #file-uploader {
             text-align: center;
@@ -319,9 +318,9 @@
 <div class="container" style="margin-top: 50px">
     <div class="jumbotron">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 text-center">
                 <h1>PredictMe</h1>
-                <p>A web Application for Patient Stratification in the Neurodegeneration Field.</p>
+                <h4>A web application to stratify patients with neurodegenerative disorders.</h4>
             </div>
         </div>
     </div>
@@ -331,10 +330,19 @@
     <div class="container container-fluid" style="margin-top:80px">
         <div class="col-md-12 col-sm-12 col-lg-12">
             <div class="row">
-                <h2>Upload your SNP Panel</h2>
+                <h2>Upload your SNP panel and stratify your cohort</h2>
             </div>
             <div class="row">
-                <p>Here goes some text with the explanation on what to upload.
+                <p>The input of PredictMe consists of a SNP panel that corresponds to the genotypic information for each
+                    patient. This input can be uploaded as a matrix stored as a csv formatted file where the columns
+                    correspond to the patient identifiers and the rows to the specific SNPs measured in the cohort
+                    represented as <a href="https://www.ncbi.nlm.nih.gov/snp/">SNP identifiers</a>. As an example, we
+                    provide the following <a
+                            href="https://predictme.scai.fraunhofer.de/static/examples/snp_example_panel_predictme.csv">
+                        file</a>. An equivalent file can be uploaded to cluster the patients in the cohort with the
+                    AI model trained by <a
+                            href="https://doi.org/10.1038/s41598-020-76200-4">Emon MA <i>et al.</i> (2020).
+                    </a>
                 </p>
             </div>
 

@@ -17,19 +17,30 @@
 
 <div class="container container-fluid">
 
-    <div class="row"  style="margin-top: 25px">
+    <div class="row" style="margin-top: 25px">
         <div class="col">
             <div class="card">
+                <div class="card-header">
+                    About
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">About</h5>
                     <p class="card-text"></p>
+                    This web application is maintained by Fraunhofer SCAI with support from the <a
+                        href="http://www.imi.europa.eu/">IMI</a> project <a
+                        href="http://www.aetionomy.eu/en/vision.html">AETIONOMY</a>.
+                    For any questions regarding the methodology, please contact <a
+                        href="mailto:holger.frohlich@scai.fraunhofer.de">Prof. Dr. Holger Fröhlich</a>.
+                    For any bugs in the website, please contact <a
+                        href="mailto:daniel.domingo.fernandez@scai.fraunhofer.de">Dr. Daniel Domingo-Fernández</a>.
                 </div>
             </div>
         </div>
         <div class="col">
             <div class="card">
+                <div class="card-header">
+                    Legal
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Legal</h5>
                     <p class="card-text">This web application is hosted in Germany, and has an imprint dictating
                         disclaimers, etc.</p>
                     <a href="{% url 'legal' %}" class="btn btn-primary">Imprint</a>
@@ -38,17 +49,21 @@
         </div>
         <div class="col">
             <div class="card">
+                <div class="card-header">
+                    Reference
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Reference</h5>
                     <div class="card-text">
-                        <p>This web application is maintained by <a
-                                href="https://www.scai.fraunhofer.de/en/about-us/staff/domingo-fernandez.html">
-                            Daniel Domingo-Fernández</a> at Fraunhofer SCAI with support from the <a
-                                href="http://www.imi.europa.eu/">IMI</a> project <a
-                                href="http://www.aetionomy.eu/en/vision.html">AETIONOMY</a>. If you want to cite
-                            this work, please use the following reference:
+                        <p>If you want to cite this work, please use the following reference:
                         </p>
-                        <p><b>TODO</b></p>
+                        <p>
+                            <mark>
+                                Emon MA, ..., and Fröhlich H. (2020) <a
+                                    href="https://doi.org/10.1038/s41598-020-76200-4">
+                                <b>Clustering of Alzheimer’s and Parkinson’s disease based on genetic burden of shared
+                                    molecular mechanisms.</b></a> <i>Scientific Reports</i> 10:19097.
+                            </mark>
+                        </p>
                     </div>
                 </div>
             </div>
