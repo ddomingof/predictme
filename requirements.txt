@@ -1,7 +1,7 @@
 numpy==1.16.3
 tqdm==4.31.1
 pandas==0.24.2
-django==2.1
+django==2.2.24
 xlrd==1.2.0
 click==7.0
 rpy2==3.1.0
